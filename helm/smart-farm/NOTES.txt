@@ -1,0 +1,12 @@
+Smart Farm has been deployed.
+
+Check the workloads:
+  kubectl -n {{ .Release.Namespace }} get pods,svc
+
+The backend expects the existing Secret:
+  {{ .Values.backend.existingSecret }}
+
+For local access:
+  kubectl -n {{ .Release.Namespace }} port-forward svc/{{ include "smart-farm.fullname" . }}-frontend 8080:80
+
+Then open http://localhost:8080

@@ -1,0 +1,20 @@
+# Copy to ingress.yaml and change the host before applying.
+# Requires an Ingress controller such as ingress-nginx and DNS pointing to it.
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: smart-farm
+  namespace: smart-farm
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: smart-farm.example.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: smart-farm-frontend
+                port:
+                  number: 80

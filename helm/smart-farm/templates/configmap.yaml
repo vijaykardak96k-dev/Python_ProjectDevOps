@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "smart-farm.fullname" . }}-config
+  labels:
+    {{- include "smart-farm.labels" . | nindent 4 }}
+data:
+  MONGO_DB: {{ .Values.backend.env.MONGO_DB | quote }}
+  CORS_ORIGINS: {{ .Values.backend.env.CORS_ORIGINS | quote }}
+  SEED_ON_START: {{ .Values.backend.env.SEED_ON_START | quote }}

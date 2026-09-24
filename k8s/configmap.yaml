@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: smart-farm-config
+  namespace: smart-farm
+data:
+  MONGO_DB: smartfarm
+  CORS_ORIGINS: "*"
+  SEED_ON_START: "false"
